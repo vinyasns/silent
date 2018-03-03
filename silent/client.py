@@ -1,4 +1,5 @@
 from .wrapper import Network
+import json
 
 
 class Client:
@@ -19,5 +20,13 @@ class Client:
 
         self._api_request()
 
-        print(self._response.text)
+        print("\n {0}".format(self._response.status_code))
+        print(self._response.reason)
+        res = json.loads(self._response.text)
+        if res['success']:
+            print('Your link to share : {0}'.format(res['link']))
+            print('Expires in {0}'.format(res['expiry']))
+        else:
+            print('Upload failed, try again :(')
+
 

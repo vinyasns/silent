@@ -24,7 +24,6 @@ class Network:
     def _create_upload(filename):
         m = magic.Magic(mime=True)
         tt = m.from_file(filename)
-        print(tt)
         return MultipartEncoder({'file': (filename, open(filename, 'rb'), tt)})
 
     @staticmethod
