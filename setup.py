@@ -4,7 +4,7 @@ setup(
     name='silent',
     version='0.1',
     packages=['silent'],
-    url='',
+    url='https://github.com/vinyasns/silent',
     license='GPLv3',
     author='Vinyas N S',
     author_email='vinyasns@gmail.com',
