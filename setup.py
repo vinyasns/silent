@@ -9,5 +9,5 @@ setup(
     author='Vinyas N S',
     author_email='vinyasns@gmail.com',
     description='A commandline client for file.io',
-    install_requires=['pycurl']
+    install_requires=['clint', 'python-magic', 'requests_toolbelt']
 )
