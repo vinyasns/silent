@@ -29,7 +29,7 @@ class Silent:
 
     def run(self):
         if not self._args.file:
-            #self._parser.print_help()
+            self._parser.print_help()
             print(":(")
             sys.exit(1)
 
