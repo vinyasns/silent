@@ -2,8 +2,6 @@ from .wrapper import Network
 
 
 class Client:
-    FILE_IO_URL = 'https://file.io'
-    SET_EXPIRY_URL = '/?expires='
 
     def __init__(self, args):
         self._args = args
@@ -21,5 +19,5 @@ class Client:
 
         self._api_request()
 
-        print(self._response)
+        print(self._response.text)
 

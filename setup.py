@@ -1,4 +1,4 @@
-from distutils.core import setup
+from setuptools import setup
 
 setup(
     name='silent',
@@ -9,5 +9,10 @@ setup(
     author='Vinyas N S',
     author_email='vinyasns@gmail.com',
     description='A commandline client for file.io',
-    install_requires=['clint', 'python-magic', 'requests_toolbelt']
+    install_requires=['clint', 'python-magic', 'requests_toolbelt'],
+    entry_points={
+        'console_scripts': [
+            'silent=silent.silent:main',
+        ],
+    },
 )

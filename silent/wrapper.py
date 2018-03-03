@@ -4,7 +4,8 @@ from requests_toolbelt import MultipartEncoder, MultipartEncoderMonitor
 import requests
 import magic
 
-from .client import Client
+FILE_IO_URL = 'https://file.io'
+SET_EXPIRY_URL = '/?expires='
 
 
 class Network:
@@ -28,11 +29,11 @@ class Network:
 
     @staticmethod
     def post_request(payload):
-        filename = payload.filename
-        expiry = payload.expiry
-        url = Client.FILE_IO_URL
+        filename = payload['filename']
+        expiry = payload['expiry']
+        url = FILE_IO_URL
         if expiry:
-            url = url + Client.SET_EXPIRY_URL + expiry
+            url = url + SET_EXPIRY_URL + expiry
         encoder = Network._create_upload(filename)
         callback = Network._create_callback(encoder)
         monitor = MultipartEncoderMonitor(encoder, callback)

@@ -8,6 +8,7 @@ class Silent:
     PROJECT_URL = 'https://github.com/vinyasns/silent'
 
     def __init__(self):
+        self._parser = None
         self._setup_parsers()
         self._args = self._parser.parse_args()
 
@@ -17,12 +18,13 @@ class Silent:
             epilog='Project Page: ` {0} `'.format(Silent.PROJECT_URL),
         )
 
-        self._parser.add_argument('file', 'File to be uploaded anonymously')
-        self._parser.add_argument('expiry', 'Expiry time for the file on server')
+        self._parser.add_argument("file", help="File to be uploaded anonymously")
+        self._parser.add_argument('expiry', help='Expiry time for the file on server')
 
     def run(self):
         if not self._args.file:
-            self._parser.print_help()
+            #self._parser.print_help()
+            print(":(")
             sys.exit(1)
 
         silent = Client(self._args)
