@@ -16,10 +16,16 @@ class Silent:
         self._parser = argparse.ArgumentParser(
             description='A commandline client for file.io',
             epilog='Project Page: ` {0} `'.format(Silent.PROJECT_URL),
+            formatter_class=argparse.RawTextHelpFormatter
         )
 
-        self._parser.add_argument("file", help="File to be uploaded anonymously")
-        self._parser.add_argument('expiry', help='Expiry time for the file on server')
+        self._parser.add_argument('file', help="File to be uploaded anonymously")
+        self._parser.add_argument('-e', '--expiry', help='Expiry time for the file on server.\n'
+                                                         'Following formats are allowed,\n'
+                                                         'Nw, expires in N weeks\n'
+                                                         'Nm, expires in N months\n'
+                                                         'Ny, expires in N years\n'
+                                                         'Where N is a positive integer')
 
     def run(self):
         if not self._args.file:

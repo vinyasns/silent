@@ -15,8 +15,7 @@ class Client:
     def run(self):
         self._payload['filename'] = self._args.file
 
-        if self._args.expiry:
-            self._payload['expiry'] = self._args.expiry
+        self._payload['expiry'] = self._args.expiry
 
         self._api_request()
 
